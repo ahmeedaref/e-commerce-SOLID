@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "5c2e91c2-c3ac-46ec-aca8-b6e200bc59a0",
+		"name": "Solid-e-commerce-postMan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37775038"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ali\",\r\n    \"email\":\"ali@gamil.com\",\r\n    \"password\":\"12345\",\r\n    \"role\":\"Admin\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"name\":\"ali\",\r\n    \"email\":\"ali@gamil.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create product",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg3OTYwNzYsImV4cCI6MTczODc5OTY3Nn0.VgCrPrrv8SFQAYtrwsh466JD5bCbxuDG0DdM44osr7A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"hard hhhssd\",\r\n    \"price\":850,\r\n    \"quantity\":5,\r\n    \"category\":\"hs1\",\r\n    \"description\":\"hard ssd 550 GB , color:balck \",\r\n    \"CreatedBy\":\"67a3bec4b69d7f5610d05fd8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get All products",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg3OTYzNzksImV4cCI6MTczODc5OTk3OX0.BJT5IaCjnHuEnjL4buuQcCYIW1JGcV3jyQT3tLmi84A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get One product",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg3OTYzNzksImV4cCI6MTczODc5OTk3OX0.BJT5IaCjnHuEnjL4buuQcCYIW1JGcV3jyQT3tLmi84A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/products/67a3ec3821917f5aad8d38ee",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"67a3ec3821917f5aad8d38ee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg3OTYzMDIsImV4cCI6MTczODc5OTkwMn0.K5hu7zs25CD_jwWllbUw8JojoZShLMlBS2scinrfMiE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"dclkdjasb\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/67a3ec3821917f5aad8d38ee",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"67a3ec3821917f5aad8d38ee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg3OTYzNzksImV4cCI6MTczODc5OTk3OX0.BJT5IaCjnHuEnjL4buuQcCYIW1JGcV3jyQT3tLmi84A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/products/67a3ec3821917f5aad8d38ee",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"67a3ec3821917f5aad8d38ee"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
