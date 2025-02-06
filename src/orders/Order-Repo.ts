@@ -87,4 +87,15 @@ export class OrderRepo {
       .exec();
     return orders;
   }
+
+  async getOne_Order(id: string): Promise<OrderDocument> {
+    const order =
+      await this.OrderModel.findById(id).populate('products.product');
+
+    if (!order) {
+      console.log(order);
+      throw new NotFoundException('Order Not found ');
+    }
+    return order;
+  }
 }

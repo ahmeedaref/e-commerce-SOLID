@@ -274,6 +274,28 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "getOne Order",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/orders/67a4f7d33fd7ea74e258635a",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"67a4f7d33fd7ea74e258635a"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

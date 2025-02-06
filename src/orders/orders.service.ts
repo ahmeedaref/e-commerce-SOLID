@@ -15,4 +15,8 @@ export class OrdersService {
     const { page, limit, status, sort } = data;
     return this.OrderRepo.findAll({ page, limit, status, sort });
   }
+
+  async findOne_Order(id: string) {
+    return this.OrderRepo.getOne_Order(id);
+  }
 }
