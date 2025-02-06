@@ -98,4 +98,21 @@ export class OrderRepo {
     }
     return order;
   }
+
+  async Delete_Order(id: string) {
+    const order = await this.OrderModel.findById(id);
+    if (!order) {
+      throw new NotFoundException('order Not Found ');
+    }
+    if (
+      order.status === OrderStatus.DELIVERED ||
+      order.status === OrderStatus.CANCALLED
+    ) {
+      throw new BadRequestException(
+        'it can be Delete an order that Delivred or Cancalled',
+      );
+    }
+    await this.OrderModel.findByIdAndDelete(id);
+    return 'Deleted the Order';
+  }
 }

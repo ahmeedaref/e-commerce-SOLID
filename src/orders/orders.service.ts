@@ -19,4 +19,8 @@ export class OrdersService {
   async findOne_Order(id: string) {
     return this.OrderRepo.getOne_Order(id);
   }
+
+  async Delete_order(id: string) {
+    return this.OrderRepo.Delete_Order(id);
+  }
 }

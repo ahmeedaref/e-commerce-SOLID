@@ -1,4 +1,12 @@
-import { Controller, Post, Body, Get, Query, Param } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Get,
+  Query,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { createOrderDto } from './Dtos/create-order-dto';
 import { OrderStatus } from 'src/schemas/orders-schema';
@@ -22,6 +30,11 @@ export class OrdersController {
   @Get('/:id')
   async getOne_Order(@Param('id') id: string) {
     const order = this.OrderService.findOne_Order(id);
+    return order;
+  }
+  @Delete('/:id')
+  async Delete_Order(@Param('id') id: string) {
+    const order = this.OrderService.Delete_order(id);
     return order;
   }
 }
