@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { OrderRepo } from './Order-Repo';
 import { createOrderDto } from './Dtos/create-order-dto';
 import { getOrderDto } from './Dtos/getAll-orders-dtos';
+import { UpadteOrder } from './Dtos/update-order-dto';
 
 @Injectable()
 export class OrdersService {
@@ -22,5 +23,8 @@ export class OrdersService {
 
   async Delete_order(id: string) {
     return this.OrderRepo.Delete_Order(id);
+  }
+  async update_order(id: string, data: UpadteOrder) {
+    return this.OrderRepo.upadte_Order(id, data);
   }
 }

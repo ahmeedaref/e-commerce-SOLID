@@ -231,7 +231,13 @@
 					"type": "noauth"
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ2FtaWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3Mzg4ODEwOTksImV4cCI6MTczODg4NDY5OX0.N51rXTYoYnqXCV9Vm_D_BNczD6v5mVY3F91QxDq9HUQ",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"userId\":\"67a3bec4b69d7f5610d05fd8\",\r\n    \"products\":[\r\n        {\"productId\":\"67a3a7f529f13a33cbc18977\",\"quantity\":5,\"price\":250},\r\n        {\"productId\":\"67a3bf38b69d7f5610d05fdd\",\"quantity\":5,\"price\":850}\r\n    ],\r\n     \"status\":\"PENDING\"\r\n}",
@@ -261,7 +267,13 @@
 					"type": "noauth"
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg4ODE5MzgsImV4cCI6MTczODg4NTUzOH0.0O2DI9WkNytu9WNvBjypO9NbXD8uW5pMpgtkGhQQu-Q",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:8080/orders",
 					"host": [
@@ -282,16 +294,22 @@
 					"type": "noauth"
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg4ODE5MzgsImV4cCI6MTczODg4NTUzOH0.0O2DI9WkNytu9WNvBjypO9NbXD8uW5pMpgtkGhQQu-Q",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "localhost:8080/orders/67a505aed2d3c8b857c278e8",
+					"raw": "localhost:8080/orders/67a5385e1c4168db42790d2e",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"orders",
-						"67a505aed2d3c8b857c278e8"
+						"67a5385e1c4168db42790d2e"
 					]
 				}
 			},
@@ -304,16 +322,59 @@
 					"type": "noauth"
 				},
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg4ODE5MzgsImV4cCI6MTczODg4NTUzOH0.0O2DI9WkNytu9WNvBjypO9NbXD8uW5pMpgtkGhQQu-Q",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "localhost:8080/orders/67a505aed2d3c8b857c278e8",
+					"raw": "localhost:8080/orders/67a5385e1c4168db42790d2e",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"orders",
-						"67a505aed2d3c8b857c278e8"
+						"67a5385e1c4168db42790d2e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg4ODE3MDAsImV4cCI6MTczODg4NTMwMH0.zfJXc9mGVnpXJCKNqLA6c1u0VUzDrkH9p434xl0smZA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"products\":[\r\n    {\"productId\":\"67a3a7f529f13a33cbc18977\",\"quantity\":2,\"price\":250},\r\n    {\"productId\":\"67a3bf38b69d7f5610d05fdd\",\"quantity\":2,\"price\":850}\r\n\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/orders/67a5385e1c4168db42790d2e",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"67a5385e1c4168db42790d2e"
 					]
 				}
 			},

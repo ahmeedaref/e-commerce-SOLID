@@ -9,6 +9,8 @@ import { OrderDocument } from 'src/schemas/orders-schema';
 import { ProductDocument } from 'src/schemas/products-schema';
 import { createOrderDto } from './Dtos/create-order-dto';
 import { OrderStatus } from 'src/schemas/orders-schema';
+import { UpadteOrder } from './Dtos/update-order-dto';
+import { error } from 'console';
 @Injectable()
 export class OrderRepo {
   constructor(
@@ -93,7 +95,6 @@ export class OrderRepo {
       await this.OrderModel.findById(id).populate('products.product');
 
     if (!order) {
-      console.log(order);
       throw new NotFoundException('Order Not found ');
     }
     return order;
@@ -114,5 +115,58 @@ export class OrderRepo {
     }
     await this.OrderModel.findByIdAndDelete(id);
     return 'Deleted the Order';
+  }
+
+  async upadte_Order(id: string, data: UpadteOrder) {
+    const order = await this.OrderModel.findById(id);
+    if (!order) {
+      throw new NotFoundException('order not found');
+    }
+    if (data.status) {
+      if (
+        order.status === OrderStatus.DELIVERED &&
+        order.status !== data.status
+      ) {
+        throw new BadRequestException(
+          'can not move status from Delivred to another status',
+        );
+      }
+      order.status = data.status;
+      return order.save();
+    }
+
+    if (data.products) {
+      if (
+        order.status === OrderStatus.DELIVERED &&
+        order.status !== data.status
+      ) {
+        throw new BadRequestException(
+          'can not update the order when the status is Delivred',
+        );
+      }
+      const { userId, products, status } = data;
+      const productDetails = await this.getProductDetails(products);
+      const totalprice = this.calculateTotalPrice(productDetails);
+      const ord = await this.OrderModel.findByIdAndUpdate(
+        id,
+        {
+          userId,
+          products: productDetails.map(({ product, quantity }) => ({
+            product,
+            quantity,
+          })),
+          status,
+          totalPrice: totalprice,
+        },
+        { next: true },
+      )
+        .populate('products.product')
+        .exec();
+
+      const updatedOrder = await this.OrderModel.findById(id)
+        .populate('products.product')
+        .exec();
+      return updatedOrder;
+    }
   }
 }
