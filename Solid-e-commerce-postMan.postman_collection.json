@@ -395,7 +395,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/products/search?name=LABTOP",
+					"raw": "localhost:8080/products/search?category=ELec",
 					"host": [
 						"localhost"
 					],
@@ -406,8 +406,8 @@
 					],
 					"query": [
 						{
-							"key": "name",
-							"value": "LABTOP"
+							"key": "category",
+							"value": "ELec"
 						}
 					]
 				}

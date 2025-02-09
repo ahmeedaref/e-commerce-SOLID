@@ -52,7 +52,7 @@ export class ProductRepo {
       filters.name = { $regex: query.name, $options: 'i' };
     }
     if (query.category) {
-      filters.category = query.category;
+      filters.category = { $regex: query.category, $options: 'i' };
     }
 
     if (query.price) {
