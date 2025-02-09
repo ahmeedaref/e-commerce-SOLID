@@ -45,6 +45,22 @@ export class ProductRepo {
     return this.ProductModel.findById(id).populate('CreatedBy').exec();
   }
 
+  async search_Query(query: any): Promise<ProductDocument[]> {
+    const filters: any = {};
+
+    if (query.name) {
+      filters.name = { $regex: query.name, $options: 'i' };
+    }
+    if (query.category) {
+      filters.category = query.category;
+    }
+
+    if (query.price) {
+      filters.price = JSON.parse(query.price);
+    }
+    return this.ProductModel.find(filters).populate('CreatedBy').exec();
+  }
+
   async update_product(id: string, data: UpdateProduct) {
     const product = await this.ProductModel.findByIdAndUpdate(
       { _id: id },

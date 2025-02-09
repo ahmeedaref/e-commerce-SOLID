@@ -47,7 +47,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"name\":\"ali\",\r\n    \"email\":\"ali@gamil.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n \"name\":\"ahmed\",\r\n    \"email\":\"ahmed@gamil.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -78,13 +78,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg3OTYwNzYsImV4cCI6MTczODc5OTY3Nn0.VgCrPrrv8SFQAYtrwsh466JD5bCbxuDG0DdM44osr7A",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3MzkxMjI5MjYsImV4cCI6MTczOTEyNjUyNn0.kdy8feuRiJF2HLgnWqlwdJRR9QePNOxDUMcjIPB7esk",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"hard hhhssd\",\r\n    \"price\":850,\r\n    \"quantity\":5,\r\n    \"category\":\"hs1\",\r\n    \"description\":\"hard ssd 550 GB , color:balck \",\r\n    \"CreatedBy\":\"67a3bec4b69d7f5610d05fd8\"\r\n}",
+					"raw": "{\r\n    \"name\":\"labtop lenovo\",\r\n    \"price\":18000,\r\n    \"quantity\":12,\r\n    \"category\":\"electroinc\",\r\n    \"description\":\"laptop Dell ,Color:black , 8 Ram GB,256 hard ssd, icore:7, gen:9 \",\r\n    \"CreatedBy\":\"67a3bec4b69d7f5610d05fd8\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -375,6 +375,40 @@
 					"path": [
 						"orders",
 						"67a5385e1c4168db42790d2e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search Query",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ2FtaWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3MzkxMjMyMDAsImV4cCI6MTczOTEyNjgwMH0.m2-iApekuR5CsRzcsR8FIxK5JZJ_GLngu8Powb1icJo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/products/search?name=LABTOP",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "LABTOP"
+						}
 					]
 				}
 			},
