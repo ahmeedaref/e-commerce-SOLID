@@ -10,7 +10,7 @@ import { ProductDocument } from 'src/schemas/products-schema';
 import { createOrderDto } from './Dtos/create-order-dto';
 import { OrderStatus } from 'src/schemas/orders-schema';
 import { UpadteOrder } from './Dtos/update-order-dto';
-import { error } from 'console';
+
 @Injectable()
 export class OrderRepo {
   constructor(
@@ -30,7 +30,7 @@ export class OrderRepo {
         }
 
         return {
-          product: product._id,
+          product,
           quantity,
           price: product.price,
         };
@@ -54,6 +54,20 @@ export class OrderRepo {
     const { userId, products, status } = data;
     const productDetails = await this.getProductDetails(products);
     const totalPrice = this.calculateTotalPrice(productDetails);
+
+    for (const { product, quantity } of productDetails) {
+      if (product.quantity < quantity) {
+        throw new BadRequestException(
+          `Not enough stock for product: ${product.name}`,
+        );
+      }
+    }
+
+    for (const { product, quantity } of productDetails) {
+      product.quantity -= quantity;
+      await product.save();
+    }
+
     const order = new this.OrderModel({
       userId,
       products: productDetails.map(({ product, quantity }) => ({
