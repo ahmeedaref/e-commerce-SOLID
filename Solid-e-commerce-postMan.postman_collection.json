@@ -413,6 +413,37 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Refresh_token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NDAzMjY4MzcsImV4cCI6MTc0MDQxMzIzN30.iwen_W6u-DlCp3ix0xl1Jg-BGWH3AtmX5AbSpkeP3ks\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/refresh",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -2,6 +2,7 @@ import {
   Injectable,
   BadRequestException,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { UserDocument } from 'src/schemas/user-schema';
@@ -23,14 +24,14 @@ export class UserRepo {
       const { email } = data;
       const user = await this.UserModel.findOne({ email });
       if (user) {
-        return new BadRequestException('Email is exists');
+        throw new BadRequestException('Email is exists');
       }
       const PasswordHashed = await bcrypt.hash(data.password, 10);
       data.password = PasswordHashed;
       const User = new this.UserModel(data);
       return User.save();
     } catch (err) {
-      return new BadRequestException(err);
+      throw new BadRequestException(err);
     }
   }
 
@@ -38,11 +39,11 @@ export class UserRepo {
     const { email } = data;
     const user = await this.UserModel.findOne({ email });
     if (!user) {
-      return new NotFoundException('User Not Found');
+      throw new NotFoundException('User Not Found');
     }
     const comparePassword = await bcrypt.compare(data.password, user.password);
     if (!comparePassword) {
-      return new BadRequestException('Wrong password');
+      throw new BadRequestException('Wrong password');
     }
     const payload = {
       id: user.id,
@@ -56,6 +57,34 @@ export class UserRepo {
       expiresIn: this.configService.get<string>('EXPIRESIN'),
     });
 
-    return { message: 'Logged Successfully', accesstoken };
+    const refreshtoken = this.jwtservice.sign(payload, {
+      secret: this.configService.get<string>('REFRESHTOKEN'),
+      expiresIn: '30m',
+    });
+
+    return { message: 'Logged Successfully', accesstoken, refreshtoken };
+  }
+
+  async refresh_Token(refresh: string) {
+    try {
+      const decode = this.jwtservice.verify(refresh, {
+        secret: this.configService.get<string>('REFRESHTOKEN'),
+      });
+      const payload = {
+        id: decode.id,
+        name: decode.name,
+        email: decode.email,
+        role: decode.role,
+      };
+
+      const newAcessToken = this.jwtservice.sign(payload, {
+        secret: this.configService.get<string>('ACCESSTOKEN'),
+        expiresIn: this.configService.get<string>('EXPIRESIN'),
+      });
+
+      return { accessToken: newAcessToken };
+    } catch (err) {
+      throw new UnauthorizedException('Invalid or Expired refresh Token');
+    }
   }
 }

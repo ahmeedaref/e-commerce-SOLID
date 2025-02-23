@@ -12,4 +12,8 @@ export class AuthService {
   async login(data: CreateUser) {
     return this.UserRepo.CheckUser(data);
   }
+
+  async ref_Token(refresh: string) {
+    return this.UserRepo.refresh_Token(refresh);
+  }
 }
