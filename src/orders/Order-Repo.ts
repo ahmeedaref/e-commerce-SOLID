@@ -10,6 +10,7 @@ import { ProductDocument } from 'src/schemas/products-schema';
 import { createOrderDto } from './Dtos/create-order-dto';
 import { OrderStatus } from 'src/schemas/orders-schema';
 import { UpadteOrder } from './Dtos/update-order-dto';
+import mongoose from 'mongoose';
 
 @Injectable()
 export class OrderRepo {
@@ -182,5 +183,16 @@ export class OrderRepo {
         .exec();
       return updatedOrder;
     }
+  }
+  async getOrdersByUserId(userId: string): Promise<OrderDocument[]> {
+    const orders = await this.OrderModel.find({
+      userId: new mongoose.Types.ObjectId(userId),
+    }).populate('products.product');
+
+    if (!orders || orders.length === 0) {
+      throw new NotFoundException('No orders found for this user');
+    }
+
+    return orders;
   }
 }

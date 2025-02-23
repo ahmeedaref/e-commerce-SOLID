@@ -8,6 +8,9 @@ import {
   Delete,
   Patch,
   UseGuards,
+  Req,
+  UnauthorizedException,
+  BadRequestException,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { createOrderDto } from './Dtos/create-order-dto';
@@ -15,6 +18,8 @@ import { OrderStatus } from 'src/schemas/orders-schema';
 import { UpadteOrder } from './Dtos/update-order-dto';
 import { CheckAdmin } from 'src/guards/check-Admin';
 import { checkToken } from 'src/guards/check-Token';
+import { Request } from 'express';
+import mongoose from 'mongoose';
 @Controller('orders')
 export class OrdersController {
   constructor(private OrderService: OrdersService) {}
@@ -33,6 +38,12 @@ export class OrdersController {
     @Query('sort') sort: 'asc' | 'desc' = 'asc',
   ) {
     return this.OrderService.findALL_Orders({ page, limit, status, sort });
+  }
+
+  @Get('my-orders/:userId')
+  @UseGuards(checkToken)
+  async getUserOrders(@Param('userId') userId: string) {
+    return this.OrderService.getUserOrder(userId);
   }
   @UseGuards(checkToken)
   @Get('/:id')

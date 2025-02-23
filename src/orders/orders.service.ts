@@ -27,4 +27,8 @@ export class OrdersService {
   async update_order(id: string, data: UpadteOrder) {
     return this.OrderRepo.upadte_Order(id, data);
   }
+
+  async getUserOrder(userId: string) {
+    return this.OrderRepo.getOrdersByUserId(userId);
+  }
 }

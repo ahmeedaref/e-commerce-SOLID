@@ -47,7 +47,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"name\":\"ali\",\r\n    \"email\":\"ali@gamil.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n \"name\":\"ahmed\",\r\n    \"email\":\"ahmed@gamil.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -78,13 +78,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3MzkxMjI5MjYsImV4cCI6MTczOTEyNjUyNn0.kdy8feuRiJF2HLgnWqlwdJRR9QePNOxDUMcjIPB7esk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NDAzMzI3NjgsImV4cCI6MTc0MDMzNjM2OH0.vmKy7syI6k38DG6eGeQy2tdXJsPsmzKSqfw_j9b3x5k",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"labtop lenovo\",\r\n    \"price\":18000,\r\n    \"quantity\":12,\r\n    \"category\":\"electroinc\",\r\n    \"description\":\"laptop Dell ,Color:black , 8 Ram GB,256 hard ssd, icore:7, gen:9 \",\r\n    \"CreatedBy\":\"67a3bec4b69d7f5610d05fd8\"\r\n}",
+					"raw": "{\r\n    \"name\":\"shoes Addidas Samba\",\r\n    \"price\":1250,\r\n    \"quantity\":15,\r\n    \"category\":\"shoes\",\r\n    \"description\":\"shose Addidas samba white and black, size:42 \",\r\n    \"CreatedBy\":\"67a3bec4b69d7f5610d05fd8\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -114,7 +114,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg3OTYzNzksImV4cCI6MTczODc5OTk3OX0.BJT5IaCjnHuEnjL4buuQcCYIW1JGcV3jyQT3tLmi84A",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NDAzMzI3NjgsImV4cCI6MTc0MDMzNjM2OH0.vmKy7syI6k38DG6eGeQy2tdXJsPsmzKSqfw_j9b3x5k",
 						"type": "text"
 					}
 				],
@@ -169,13 +169,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg3OTYzMDIsImV4cCI6MTczODc5OTkwMn0.K5hu7zs25CD_jwWllbUw8JojoZShLMlBS2scinrfMiE",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NDAzMzI3NjgsImV4cCI6MTc0MDMzNjM2OH0.vmKy7syI6k38DG6eGeQy2tdXJsPsmzKSqfw_j9b3x5k",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"dclkdjasb\"\r\n}",
+					"raw": "{\r\n\"description\":\"t-shirt black oversize , size:large,brand:Zara \"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -183,14 +183,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/products/67a3ec3821917f5aad8d38ee",
+					"raw": "localhost:8080/products/67bb5f4cf4ed5ceab4a4caea",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"products",
-						"67a3ec3821917f5aad8d38ee"
+						"67bb5f4cf4ed5ceab4a4caea"
 					]
 				}
 			},
@@ -234,13 +234,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzk4MzQ0OTgsImV4cCI6MTczOTgzODA5OH0.v-KRBYsbrmO8iO5NgeX2eQ2rDG3ekHt-6seJpFCrfhE",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ2FtaWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDAzMzMzOTUsImV4cCI6MTc0MDMzNjk5NX0.AFNguJMKv1SYt2BtVfr1HjzHnztmWB22ntog477oNSM",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userId\":\"67a3bec4b69d7f5610d05fd8\",\r\n    \"products\":[\r\n        {\"productId\":\"67a3a7f529f13a33cbc18977\",\"quantity\":8,\"price\":250},\r\n        {\"productId\":\"67a3bf38b69d7f5610d05fdd\",\"quantity\":5,\"price\":850}\r\n    ],\r\n     \"status\":\"PENDING\"\r\n}",
+					"raw": "{\r\n    \"userId\":\"67a3958d4c219646a55ddcba\",\r\n    \"products\":[\r\n        {\"productId\":\"67bb609bf4ed5ceab4a4caff\",\"quantity\":1,\"price\":1750},\r\n        {\"productId\":\"67bb6030f4ed5ceab4a4caf9\",\"quantity\":1,\"price\":750},\r\n        {\"productId\":\"67bb5eedf4ed5ceab4a4cae4\",\"quantity\":2,\"price\":450},\r\n        {\"productId\":\"67bb6013f4ed5ceab4a4caf3\",\"quantity\":2,\"price\":750}\r\n    ],\r\n     \"status\":\"PENDING\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -270,7 +270,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzk4MzQ0OTgsImV4cCI6MTczOTgzODA5OH0.v-KRBYsbrmO8iO5NgeX2eQ2rDG3ekHt-6seJpFCrfhE",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ2FtaWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDAzMzgyNDUsImV4cCI6MTc0MDM0MTg0NX0.OUpvqSquizJ_pSM5CHkwu9ObSi9qqNed__vKmaRoV10",
 						"type": "text"
 					}
 				],
@@ -440,6 +440,35 @@
 					"path": [
 						"auth",
 						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get orders By userId",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ2FtaWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDAzMzgyNDUsImV4cCI6MTc0MDM0MTg0NX0.OUpvqSquizJ_pSM5CHkwu9ObSi9qqNed__vKmaRoV10",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/orders/my-orders/67a3bec4b69d7f5610d05fd8",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"my-orders",
+						"67a3bec4b69d7f5610d05fd8"
 					]
 				}
 			},
