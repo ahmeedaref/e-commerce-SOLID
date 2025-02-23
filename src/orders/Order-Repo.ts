@@ -2,6 +2,7 @@ import {
   Injectable,
   BadRequestException,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -184,7 +185,22 @@ export class OrderRepo {
       return updatedOrder;
     }
   }
-  async getOrdersByUserId(userId: string): Promise<OrderDocument[]> {
+  async getOrdersByUserId(
+    userId: string,
+    requestUser: any,
+  ): Promise<OrderDocument[]> {
+    console.log('Requested User ID:', userId);
+    console.log('Authenticated User:', requestUser);
+    if (!requestUser) {
+      throw new UnauthorizedException('User not authenticated');
+    }
+
+    if (requestUser.id !== userId && requestUser.role !== 'Admin') {
+      throw new UnauthorizedException(
+        'You are not allowed to view these orders',
+      );
+    }
+
     const orders = await this.OrderModel.find({
       userId: new mongoose.Types.ObjectId(userId),
     }).populate('products.product');

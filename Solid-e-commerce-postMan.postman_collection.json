@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"ali\",\r\n    \"email\":\"ali@gamil.com\",\r\n    \"password\":\"12345\",\r\n    \"role\":\"Admin\"\r\n\r\n}",
+					"raw": "{\r\n    \"name\":\"anas\",\r\n    \"email\":\"anas@gamil.com\",\r\n    \"password\":\"12345\"\r\n    \r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -455,7 +455,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ2FtaWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDAzMzgyNDUsImV4cCI6MTc0MDM0MTg0NX0.OUpvqSquizJ_pSM5CHkwu9ObSi9qqNed__vKmaRoV10",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ2FtaWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDAzNTE4MjAsImV4cCI6MTc0MDM1NTQyMH0.qYWHpM_wSfC4otp-UAQ6oj04YqfEj1HyWbF70qz3rrE",
 						"type": "text"
 					}
 				],

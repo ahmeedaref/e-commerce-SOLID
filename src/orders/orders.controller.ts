@@ -10,7 +10,6 @@ import {
   UseGuards,
   Req,
   UnauthorizedException,
-  BadRequestException,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { createOrderDto } from './Dtos/create-order-dto';
@@ -19,7 +18,6 @@ import { UpadteOrder } from './Dtos/update-order-dto';
 import { CheckAdmin } from 'src/guards/check-Admin';
 import { checkToken } from 'src/guards/check-Token';
 import { Request } from 'express';
-import mongoose from 'mongoose';
 @Controller('orders')
 export class OrdersController {
   constructor(private OrderService: OrdersService) {}
@@ -42,10 +40,14 @@ export class OrdersController {
 
   @Get('my-orders/:userId')
   @UseGuards(checkToken)
-  async getUserOrders(@Param('userId') userId: string) {
-    return this.OrderService.getUserOrder(userId);
+  async getUserOrders(@Param('userId') userId: string, @Req() req: Request) {
+    const user = (req as any).User;
+    if (!user) {
+      throw new UnauthorizedException('User not authenticated');
+    }
+    return this.OrderService.getUserOrder(userId, user);
   }
-  @UseGuards(checkToken)
+  @UseGuards(CheckAdmin)
   @Get('/:id')
   async getOne_Order(@Param('id') id: string) {
     const order = this.OrderService.findOne_Order(id);
