@@ -31,4 +31,8 @@ export class OrdersService {
   async getUserOrder(userId: string, requestUser: any) {
     return this.OrderRepo.getOrdersByUserId(userId, requestUser);
   }
+
+  async updatePaymentStatment(orderId: string, isPaid: boolean) {
+    return this.OrderRepo.updatePaymentStatus(orderId, isPaid);
+  }
 }

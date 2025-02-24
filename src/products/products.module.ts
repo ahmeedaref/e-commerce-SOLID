@@ -31,6 +31,7 @@ import { UserRepo } from 'src/auth/user-repo';
     },
   ],
   exports: ['role'],
+
   controllers: [ProductsController],
 })
 export class ProductsModule {}

@@ -229,4 +229,8 @@ export class OrderRepo {
 
     return orders;
   }
+
+  async updatePaymentStatus(orderId: string, isPaid: boolean): Promise<void> {
+    await this.OrderModel.findByIdAndUpdate(orderId, { pay: isPaid });
+  }
 }

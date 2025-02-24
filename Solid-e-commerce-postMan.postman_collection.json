@@ -47,7 +47,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"name\":\"anas\",\r\n    \"email\":\"anas@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n \"name\":\"ahmed\",\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -234,13 +234,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmI3NmEyNjMzOWVlNjUzY2Q0N2MwMiIsIm5hbWUiOiJhbmFzIiwiZW1haWwiOiJhbmFzQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNzQwNDA3NjI2LCJleHAiOjE3NDA0MTEyMjZ9.zaVaAZgqpQnFWsh5URBV86Maow16ajrJRJV4k9D6EU0",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmI3NmEyNjMzOWVlNjUzY2Q0N2MwMiIsIm5hbWUiOiJhbmFzIiwiZW1haWwiOiJhbmFzQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNzQwNDM4MTM4LCJleHAiOjE3NDA0NDE3Mzh9.lRZhdbtEzTV6v_kCX5lhgn7L9yofSGIj_c1FhrpDkEE",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userId\":\"67bb76a26339ee653cd47c02\",\r\n    \"products\":[\r\n        {\"productId\":\"67a3a7f529f13a33cbc18977\",\"quantity\":1,\"price\":250},\r\n        {\"productId\":\"67a8dc57df9bf6520872a1fc\",\"quantity\":1,\"price\":15000}\r\n    ],\r\n     \"status\":\"PENDING\"\r\n}",
+					"raw": "{\r\n    \"userId\":\"67a3958d4c219646a55ddcba\",\r\n    \"products\":[\r\n        {\"productId\":\"67a3bf38b69d7f5610d05fdd\",\"quantity\":1,\"price\":850},\r\n        {\"productId\":\"67a3a7f529f13a33cbc18977\",\"quantity\":3,\"price\":250}\r\n       \r\n      \r\n    ],\r\n     \"status\":\"PENDING\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -469,6 +469,80 @@
 						"orders",
 						"my-orders",
 						"67bb76a26339ee653cd47c02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate otp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDA0NDAxMDIsImV4cCI6MTc0MDQ0MzcwMn0.uBeFlqPmpvHhWknsLi7LCVAZXHpMcTeapoZNLUshK9o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"userId\":\"67a3958d4c219646a55ddcba\",\r\n    \"orderId\":\"67bd01c98ec3973d558d44d2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/otp/generate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"otp",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify Otp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDA0NDAxMDIsImV4cCI6MTc0MDQ0MzcwMn0.uBeFlqPmpvHhWknsLi7LCVAZXHpMcTeapoZNLUshK9o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"userId\":\"67a3958d4c219646a55ddcba\",\r\n    \"orderId\":\"67bd01c98ec3973d558d44d2\",\r\n    \"otp\":9125\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/otp/verify",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"otp",
+						"verify"
 					]
 				}
 			},

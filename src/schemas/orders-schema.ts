@@ -11,6 +11,7 @@ export interface OrderDocument extends Document {
   }[];
   status: string;
   totalPrice: number;
+  pay: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -41,6 +42,7 @@ export const OrderSchema = new Schema<OrderDocument>(
       default: OrderStatus.PENDING,
     },
     totalPrice: { type: Number, default: 0 },
+    pay: { type: Boolean, default: false },
   },
   {
     timestamps: true,
