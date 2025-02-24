@@ -21,8 +21,8 @@ export class OrdersService {
     return this.OrderRepo.getOne_Order(id);
   }
 
-  async Delete_order(id: string) {
-    return this.OrderRepo.Delete_Order(id);
+  async Delete_order(id: string, requestUser: any) {
+    return this.OrderRepo.Delete_Order(id, requestUser);
   }
   async update_order(id: string, data: UpadteOrder) {
     return this.OrderRepo.upadte_Order(id, data);

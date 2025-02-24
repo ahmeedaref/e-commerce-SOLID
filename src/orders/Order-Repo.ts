@@ -116,8 +116,9 @@ export class OrderRepo {
     return order;
   }
 
-  async Delete_Order(id: string) {
-    const order = await this.OrderModel.findById(id);
+  async Delete_Order(id: string, requestUser: any) {
+    const order =
+      await this.OrderModel.findById(id).populate('products.product');
     if (!order) {
       throw new NotFoundException('order Not Found ');
     }
@@ -126,11 +127,30 @@ export class OrderRepo {
       order.status === OrderStatus.CANCALLED
     ) {
       throw new BadRequestException(
-        'it can be Delete an order that Delivred or Cancalled',
+        'it can Not be Delete an order that Delivred or Cancalled',
       );
     }
+
+    if (!requestUser) {
+      throw new UnauthorizedException('User Not authorized');
+    }
+
+    if (
+      requestUser.id !== order.userId.toString() &&
+      requestUser.role !== 'Admin'
+    ) {
+      throw new UnauthorizedException(
+        'You are not allowed to Delete other orders',
+      );
+    }
+
+    for (const item of order.products) {
+      const product = item.product as ProductDocument;
+      product.quantity += item.quantity;
+      await product.save();
+    }
     await this.OrderModel.findByIdAndDelete(id);
-    return 'Deleted the Order';
+    return 'Order deleted successfullye , and product stock has been restored';
   }
 
   async upadte_Order(id: string, data: UpadteOrder) {
@@ -189,8 +209,6 @@ export class OrderRepo {
     userId: string,
     requestUser: any,
   ): Promise<OrderDocument[]> {
-    console.log('Requested User ID:', userId);
-    console.log('Authenticated User:', requestUser);
     if (!requestUser) {
       throw new UnauthorizedException('User not authenticated');
     }

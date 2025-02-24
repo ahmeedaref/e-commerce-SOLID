@@ -53,10 +53,14 @@ export class OrdersController {
     const order = this.OrderService.findOne_Order(id);
     return order;
   }
-  @UseGuards(CheckAdmin)
+  @UseGuards(checkToken)
   @Delete('/:id')
-  async Delete_Order(@Param('id') id: string) {
-    const order = this.OrderService.Delete_order(id);
+  async Delete_Order(@Param('id') id: string, @Req() req: Request) {
+    const user = (req as any).User;
+    if (!user) {
+      throw new UnauthorizedException('User not authenticated');
+    }
+    const order = this.OrderService.Delete_order(id, user);
     return order;
   }
   @UseGuards(checkToken)
