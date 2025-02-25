@@ -8,8 +8,8 @@ import { UpadteOrder } from './Dtos/update-order-dto';
 export class OrdersService {
   constructor(private OrderRepo: OrderRepo) {}
 
-  async createOrder(data: createOrderDto) {
-    return this.OrderRepo.create_Order(data);
+  async createOrder(data: createOrderDto, requestUser: any) {
+    return this.OrderRepo.create_Order(data, requestUser);
   }
 
   async findALL_Orders(data: getOrderDto) {
@@ -24,8 +24,8 @@ export class OrdersService {
   async Delete_order(id: string, requestUser: any) {
     return this.OrderRepo.Delete_Order(id, requestUser);
   }
-  async update_order(id: string, data: UpadteOrder) {
-    return this.OrderRepo.upadte_Order(id, data);
+  async update_order(id: string, data: UpadteOrder, requestUser: any) {
+    return this.OrderRepo.upadte_Order(id, data, requestUser);
   }
 
   async getUserOrder(userId: string, requestUser: any) {

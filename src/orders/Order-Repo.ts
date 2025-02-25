@@ -12,6 +12,7 @@ import { createOrderDto } from './Dtos/create-order-dto';
 import { OrderStatus } from 'src/schemas/orders-schema';
 import { UpadteOrder } from './Dtos/update-order-dto';
 import mongoose from 'mongoose';
+import { Product } from '../schemas/products-schema';
 
 @Injectable()
 export class OrderRepo {
@@ -52,8 +53,16 @@ export class OrderRepo {
     );
   }
 
-  async create_Order(data: createOrderDto) {
+  async create_Order(data: createOrderDto, requestUser: any) {
     const { userId, products, status } = data;
+    if (!requestUser) {
+      throw new UnauthorizedException('User not Authorized');
+    }
+    if (requestUser.id !== userId) {
+      throw new UnauthorizedException(
+        'You are Not allowed to create order for this User',
+      );
+    }
     const productDetails = await this.getProductDetails(products);
     const totalPrice = this.calculateTotalPrice(productDetails);
 
@@ -153,18 +162,53 @@ export class OrderRepo {
     return 'Order deleted successfullye , and product stock has been restored';
   }
 
-  async upadte_Order(id: string, data: UpadteOrder) {
+  async upadte_Order(id: string, data: UpadteOrder, requestUser: any) {
     const order =
       await this.OrderModel.findById(id).populate('products.product');
     if (!order) {
       throw new NotFoundException('Order Not Found');
     }
-
-    if (order.status === OrderStatus.DELIVERED) {
-      throw new BadRequestException('Can not update the order if he DEliVRED');
+    if (!requestUser) {
+      throw new UnauthorizedException('User Not authorized');
     }
+    if (
+      requestUser.id !== order.userId.toString() &&
+      requestUser.role !== 'Admin'
+    ) {
+      throw new UnauthorizedException(
+        'You are not allowed to Update other orders',
+      );
+    }
+
+    if (
+      order.status === OrderStatus.DELIVERED ||
+      order.status === OrderStatus.CANCALLED
+    ) {
+      throw new BadRequestException(
+        'Can not update the order if he DElIVRED or CANALLED',
+      );
+    }
+
     if (data.status) {
       order.status = data.status;
+      if (data.status === OrderStatus.CANCALLED) {
+        for (const orderProduct of order.products) {
+          const product = orderProduct.product as ProductDocument;
+          const ProductFound = await this.productModel.findById(product._id);
+          if (!ProductFound) {
+            throw new NotFoundException(
+              `Product with ID ${ProductFound._id} not found`,
+            );
+          }
+          ProductFound.quantity += orderProduct.quantity;
+          await ProductFound.save();
+        }
+      }
+      await order.save();
+      return {
+        message: 'Order status updated and stock restored successfully',
+        updatedOrder: order,
+      };
     }
 
     if (data.products) {
@@ -176,6 +220,7 @@ export class OrderRepo {
           const product = p.product as ProductDocument;
           return product._id.toString() === item.productId;
         });
+
         if (existingProduct) {
           const quantityDifference = item.quantity - existingProduct.quantity;
           const product = await this.productModel.findById(item.productId);

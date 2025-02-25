@@ -234,13 +234,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDA0NDI3MTUsImV4cCI6MTc0MDQ0NjMxNX0.fIvNE8T7liuOOsa7mbMODPPIwGs6ymbmFQSAB8H1sTE",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDA1MjQ4MjEsImV4cCI6MTc0MDUyODQyMX0.b5eUU4ULb6wqKWgRZ1l__e7DXMlhfNuMPCasMBpITt0",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userId\":\"67a3958d4c219646a55ddcba\",\r\n    \"products\":[\r\n        {\"productId\":\"67bb5eedf4ed5ceab4a4cae4\",\"quantity\":2,\"price\":450}\r\n    ],\r\n     \"status\":\"PENDING\"\r\n}",
+					"raw": "{\r\n    \"userId\":\"67a3958d4c219646a55ddcba\",\r\n    \"products\":[\r\n        {\"productId\":\"67bb609bf4ed5ceab4a4caff\",\"quantity\":3,\"price\":1750}\r\n    ],\r\n     \"status\":\"PENDING\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -325,19 +325,19 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmI3NmEyNjMzOWVlNjUzY2Q0N2MwMiIsIm5hbWUiOiJhbmFzIiwiZW1haWwiOiJhbmFzQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNzQwNDA3NjI2LCJleHAiOjE3NDA0MTEyMjZ9.zaVaAZgqpQnFWsh5URBV86Maow16ajrJRJV4k9D6EU0",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDA1MjQ4MjEsImV4cCI6MTc0MDUyODQyMX0.b5eUU4ULb6wqKWgRZ1l__e7DXMlhfNuMPCasMBpITt0",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/orders/67bc83a75d8c9724b6e4de81",
+					"raw": "localhost:8080/orders/67be4d217296d3e8637dfb32",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"orders",
-						"67bc83a75d8c9724b6e4de81"
+						"67be4d217296d3e8637dfb32"
 					]
 				}
 			},
@@ -353,13 +353,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDA0NDI3MTUsImV4cCI6MTc0MDQ0NjMxNX0.fIvNE8T7liuOOsa7mbMODPPIwGs6ymbmFQSAB8H1sTE",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDA1MjQxNzksImV4cCI6MTc0MDUyNzc3OX0.t3Tws3658qWY5M9PQcfIUMQG8AnRHXureTndtWFI9cY",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"products\":[\r\n        {\"productId\":\"67bb5eedf4ed5ceab4a4cae4\",\"quantity\":4,\"price\":450}\r\n    ]\r\n}",
+					"raw": "{\r\n\"status\":\"CANCALLED\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -367,14 +367,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/orders/67bd0cbe0355435776944ade",
+					"raw": "localhost:8080/orders/67be4bb6e509d99356e3d57e",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"orders",
-						"67bd0cbe0355435776944ade"
+						"67be4bb6e509d99356e3d57e"
 					]
 				}
 			},

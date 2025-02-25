@@ -23,8 +23,9 @@ export class OrdersController {
   constructor(private OrderService: OrdersService) {}
   @UseGuards(checkToken)
   @Post()
-  async createOrder(@Body() body: createOrderDto) {
-    const order = this.OrderService.createOrder(body);
+  async createOrder(@Body() body: createOrderDto, @Req() req: Request) {
+    const user = (req as any).User;
+    const order = this.OrderService.createOrder(body, user);
     return order;
   }
   @UseGuards(CheckAdmin)
@@ -65,8 +66,13 @@ export class OrdersController {
   }
   @UseGuards(checkToken)
   @Patch('/:id')
-  async Update_Order(@Param('id') id: string, @Body() body: UpadteOrder) {
-    const order = this.OrderService.update_order(id, body);
+  async Update_Order(
+    @Param('id') id: string,
+    @Body() body: UpadteOrder,
+    @Req() req: Request,
+  ) {
+    const user = (req as any).User;
+    const order = this.OrderService.update_order(id, body, user);
     return order;
   }
 }
