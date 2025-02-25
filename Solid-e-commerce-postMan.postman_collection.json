@@ -234,13 +234,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmI3NmEyNjMzOWVlNjUzY2Q0N2MwMiIsIm5hbWUiOiJhbmFzIiwiZW1haWwiOiJhbmFzQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNzQwNDM4MTM4LCJleHAiOjE3NDA0NDE3Mzh9.lRZhdbtEzTV6v_kCX5lhgn7L9yofSGIj_c1FhrpDkEE",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDA0NDI3MTUsImV4cCI6MTc0MDQ0NjMxNX0.fIvNE8T7liuOOsa7mbMODPPIwGs6ymbmFQSAB8H1sTE",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userId\":\"67a3958d4c219646a55ddcba\",\r\n    \"products\":[\r\n        {\"productId\":\"67a3bf38b69d7f5610d05fdd\",\"quantity\":1,\"price\":850},\r\n        {\"productId\":\"67a3a7f529f13a33cbc18977\",\"quantity\":3,\"price\":250}\r\n       \r\n      \r\n    ],\r\n     \"status\":\"PENDING\"\r\n}",
+					"raw": "{\r\n    \"userId\":\"67a3958d4c219646a55ddcba\",\r\n    \"products\":[\r\n        {\"productId\":\"67bb5eedf4ed5ceab4a4cae4\",\"quantity\":2,\"price\":450}\r\n    ],\r\n     \"status\":\"PENDING\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -353,13 +353,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTNiZWM0YjY5ZDdmNTYxMGQwNWZkOCIsIm5hbWUiOiJhbGkiLCJlbWFpbCI6ImFsaUBnYW1pbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3Mzg4ODE3MDAsImV4cCI6MTczODg4NTMwMH0.zfJXc9mGVnpXJCKNqLA6c1u0VUzDrkH9p434xl0smZA",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTM5NThkNGMyMTk2NDZhNTVkZGNiYSIsIm5hbWUiOiJhaG1lZCIsImVtYWlsIjoiYWhtZWRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NDA0NDI3MTUsImV4cCI6MTc0MDQ0NjMxNX0.fIvNE8T7liuOOsa7mbMODPPIwGs6ymbmFQSAB8H1sTE",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"products\":[\r\n    {\"productId\":\"67a3a7f529f13a33cbc18977\",\"quantity\":2,\"price\":250},\r\n    {\"productId\":\"67a3bf38b69d7f5610d05fdd\",\"quantity\":2,\"price\":850}\r\n\r\n]\r\n}",
+					"raw": "{\r\n  \"products\":[\r\n        {\"productId\":\"67bb5eedf4ed5ceab4a4cae4\",\"quantity\":4,\"price\":450}\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -367,14 +367,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/orders/67a5385e1c4168db42790d2e",
+					"raw": "localhost:8080/orders/67bd0cbe0355435776944ade",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"orders",
-						"67a5385e1c4168db42790d2e"
+						"67bd0cbe0355435776944ade"
 					]
 				}
 			},

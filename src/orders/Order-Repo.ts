@@ -154,56 +154,49 @@ export class OrderRepo {
   }
 
   async upadte_Order(id: string, data: UpadteOrder) {
-    const order = await this.OrderModel.findById(id);
+    const order =
+      await this.OrderModel.findById(id).populate('products.product');
     if (!order) {
-      throw new NotFoundException('order not found');
+      throw new NotFoundException('Order Not Found');
+    }
+
+    if (order.status === OrderStatus.DELIVERED) {
+      throw new BadRequestException('Can not update the order if he DEliVRED');
     }
     if (data.status) {
-      if (
-        order.status === OrderStatus.DELIVERED &&
-        order.status !== data.status
-      ) {
-        throw new BadRequestException(
-          'can not move status from Delivred to another status',
-        );
-      }
       order.status = data.status;
-      return order.save();
     }
 
     if (data.products) {
-      if (
-        order.status === OrderStatus.DELIVERED &&
-        order.status !== data.status
-      ) {
-        throw new BadRequestException(
-          'can not update the order when the status is Delivred',
-        );
-      }
-      const { userId, products, status } = data;
-      const productDetails = await this.getProductDetails(products);
-      const totalprice = this.calculateTotalPrice(productDetails);
-      const ord = await this.OrderModel.findByIdAndUpdate(
-        id,
-        {
-          userId,
-          products: productDetails.map(({ product, quantity }) => ({
-            product,
-            quantity,
-          })),
-          status,
-          totalPrice: totalprice,
-        },
-        { next: true },
-      )
-        .populate('products.product')
-        .exec();
+      const productDetails = await this.getProductDetails(data.products);
+      const totalPrice = this.calculateTotalPrice(productDetails);
 
-      const updatedOrder = await this.OrderModel.findById(id)
-        .populate('products.product')
-        .exec();
-      return updatedOrder;
+      for (const item of data.products) {
+        const existingProduct = order.products.find((p) => {
+          const product = p.product as ProductDocument;
+          return product._id.toString() === item.productId;
+        });
+        if (existingProduct) {
+          const quantityDifference = item.quantity - existingProduct.quantity;
+          const product = await this.productModel.findById(item.productId);
+          if (!product) {
+            throw new NotFoundException(
+              `Product with ID ${item.productId} not found`,
+            );
+          }
+          product.quantity -= quantityDifference;
+          await product.save();
+        }
+      }
+
+      order.products = productDetails.map(({ product, quantity }) => ({
+        product,
+        quantity,
+        price: product.price,
+      }));
+      order.totalPrice = totalPrice;
     }
+    return order.save();
   }
   async getOrdersByUserId(
     userId: string,
