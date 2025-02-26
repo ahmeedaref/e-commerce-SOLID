@@ -31,6 +31,18 @@ export class OtpRepo {
           'You not allowed to Verify the Otp for this order',
         );
       }
+      const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000);
+      const recentOtp = await this.OtpModel.findOne({
+        userId: data.userId,
+        orderId: data.orderId,
+        createdAt: { $gte: fiveMinAgo },
+      });
+      if (recentOtp) {
+        throw new BadRequestException(
+          'you can generate OTP again after Only 5 min ',
+        );
+      }
+
       const existingOtp = await this.OtpModel.findOne({
         orderId: data.orderId,
         isVerified: true,
